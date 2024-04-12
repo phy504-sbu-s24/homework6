@@ -21,10 +21,10 @@ jobs:
 
       - name: Test
         run: |
-          ./test_array > benchmark/test_array.out
-          
+          ./test_array > test_outputs.out
+          diff ./benchmark/test_array.out test_outputs.out > bench_compare.out
 
       - uses: actions/upload-artifact@v4
         with:
-          name: Workflow log
-          path: benchmark/test_array.out
+          name: Diff from benchmark
+          path: bench_compare.out
