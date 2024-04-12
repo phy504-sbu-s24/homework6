@@ -1,0 +1,31 @@
+name: cxx-unit-tests
+
+on: [push, pull_request]
+
+jobs:
+  cxx-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update -y -qq
+          sudo apt-get -qq -y install g++
+
+      - name: Build
+        run: |
+          make test_array
+
+      - name: Test
+        run: |
+          ./test_array > test_outputs.out
+          echo "Comparison of outputs:" > bench_compare.out
+          diff ./benchmark/test_array.out test_outputs.out >> bench_compare.out
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Diff from benchmark
+          path: bench_compare.out

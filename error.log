@@ -1,0 +1,51 @@
+(base) nicholaslenzo@Nicholass-MacBook-Air homework6 % make test_array  
+g++ -c test_array.cpp
+In file included from test_array.cpp:1:
+./array.H:26:22: error: expected member name or ';' after declaration specifiers
+        : _rows{rows},
+                     ^
+./array.H:43:43: warning: defaulted function definitions are a C++11 extension
+      [-Wc++11-extensions]
+    Array& operator= (const Array& src) = default;
+                                          ^
+./array.H:46:16: warning: defaulted function definitions are a C++11 extension
+      [-Wc++11-extensions]
+    ~Array() = default;
+               ^
+./array.H:26:16: error: expected '('
+        : _rows{rows},
+               ^
+./array.H:26:21: error: expected ';' after expression
+        : _rows{rows},
+                    ^
+                    ;
+./array.H:26:17: warning: expression result unused [-Wunused-value]
+        : _rows{rows},
+                ^~~~
+./array.H:79:23: error: expected ';' at end of declaration
+        double arr_min{std::numeric_limits<double>::max()};
+                      ^
+                      ;
+./array.H:80:30: warning: range-based for loop is a C++11 extension
+      [-Wc++11-extensions]
+        for (const double& e : _data) {
+                             ^
+./array.H:87:23: error: expected ';' at end of declaration
+        double arr_max{std::numeric_limits<double>::lowest()};
+                      ^
+                      ;
+./array.H:88:30: warning: range-based for loop is a C++11 extension
+      [-Wc++11-extensions]
+        for (const double& e : _data) {
+                             ^
+./array.H:95:14: warning: 'auto' type specifier is a C++11 extension
+      [-Wc++11-extensions]
+        for (auto & e : _data) {
+             ^
+./array.H:95:23: warning: range-based for loop is a C++11 extension
+      [-Wc++11-extensions]
+        for (auto & e : _data) {
+                      ^
+7 warnings and 5 errors generated.
+make: *** [test_array.o] Error 1
+(base) nicholaslenzo@Nicholass-MacBook-Air homework6 % 
