@@ -22,3 +22,7 @@ jobs:
       - name: Test
         run: |
           ./test_array > test_array.out
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Workflow log
