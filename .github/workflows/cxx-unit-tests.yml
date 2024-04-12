@@ -21,9 +21,10 @@ jobs:
 
       - name: Test
         run: |
-          ./test_array > test_array.out
+          ./test_array > benchmark/test_array.out
+          
 
       - uses: actions/upload-artifact@v4
         with:
           name: Workflow log
-          path: test_array.out
+          path: benchmark/test_array.out
