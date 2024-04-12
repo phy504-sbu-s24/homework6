@@ -22,7 +22,8 @@ jobs:
       - name: Test
         run: |
           ./test_array > test_outputs.out
-          diff ./benchmark/test_array.out test_outputs.out > bench_compare.out
+          echo "Comparison of outputs:" > bench_compare.out
+          diff ./benchmark/test_array.out test_outputs.out >> bench_compare.out
 
       - uses: actions/upload-artifact@v4
         with:
